@@ -33,7 +33,7 @@ export default function Home() {
         <View className="flex justify-center items-center gap-y-2">
           <Image
             source={require("../assets/images/avatar.png")}
-            style={{ height: hp(8), width: wp(8), borderRadius: hp(4) }}
+            style={{ height: hp(8), width: hp(8), borderRadius: hp(4) }}
             resizeMode="cover"
           />
           <View className="bg-neutral-200 rounded-full flex justify-center items-center border-[3px] border-neutral-300">

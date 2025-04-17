@@ -1,7 +1,8 @@
-import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
-// import { Image } from 'expo-image';
+import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
+import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -11,7 +12,6 @@ export default function ExerciseList({data}) {
   const router = useRouter();
   return (
     <View>
-      <Text>ExerciseList</Text>
       <FlatList
         data={data}
         horizontal={false}
@@ -36,7 +36,7 @@ const ExerciseCard =({router, index, item})=> {
     return str.replace(/\b\w/g, char => char.toUpperCase());
   };
   return(
-    <View>
+    <Animated.View entering={FadeInDown.duration(400).delay(index*200).springify()}>
       <TouchableOpacity
         className="flex py-3 gap-y-2"
         onPress={()=>router.push({pathname:'/exerciseDetails', params: item})}
@@ -58,6 +58,6 @@ const ExerciseCard =({router, index, item})=> {
           }
         </Text>
       </TouchableOpacity>
-    </View>
+    </Animated.View>
   )
 }

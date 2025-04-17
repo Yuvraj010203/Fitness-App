@@ -41,7 +41,7 @@ export default function Exercises() {
         className="bg-rose-500 mx-4 absolute flex justify-center items-center pr-1 rounded-full"
         style={{height: hp(5.5), width: hp(5.5), marginTop: hp(7)}}
       >
-        <Ionicons name="caret-back-outline" size={hp(4)} color="white" />
+        <Ionicons name="caret-back-outline" size={hp(4.5)} color="white" />
       </TouchableOpacity>
 
       {/* Exercises */}

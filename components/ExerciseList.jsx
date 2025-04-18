@@ -2,7 +2,7 @@ import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
-import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
+import Animated, { FadeInDown } from "react-native-reanimated";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,

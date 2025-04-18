@@ -7,7 +7,7 @@ import {
 import { bodyParts } from "../constants";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
-import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 export default function BodyParts() {
   const router = useRouter();

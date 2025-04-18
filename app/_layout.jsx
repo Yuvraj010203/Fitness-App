@@ -1,8 +1,5 @@
-import { Platform } from 'react-native';
 import React from 'react';
 import { Stack } from 'expo-router';
-import { TransitionPresets, CardStyleInterpolators } from '@react-navigation/stack';
-
 export default function _layout() {
   return (
     <Stack

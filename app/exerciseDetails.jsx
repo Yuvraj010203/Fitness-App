@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import React from "react";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
+import Animated, { FadeInDown } from "react-native-reanimated";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,

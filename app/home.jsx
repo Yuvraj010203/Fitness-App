@@ -1,5 +1,6 @@
-import { View, Text, Image } from "react-native";
-import React from "react";
+import { View, Text, Image, BackHandler, Alert } from "react-native";
+import React, { useCallback } from "react";
+import { useFocusEffect } from "expo-router"; // ✅ correct one for expo-router
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import {
@@ -10,12 +11,34 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import ImageSlider from "../components/ImageSlider";
 import BodyParts from "../components/BodyParts";
 
+
 export default function Home() {
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
+        Alert.alert("Hold on!", "Do you really want to exit the app?", [
+          {
+            text: "Cancel",
+            onPress: () => null,
+            style: "cancel",
+          },
+          { text: "YES", onPress: () => BackHandler.exitApp() },
+        ]);
+        return true;
+      };
+
+      const subscription = BackHandler.addEventListener(
+        "hardwareBackPress",
+        onBackPress
+      );
+
+      return () => subscription.remove();
+    }, [])
+  );
+
   return (
     <SafeAreaView className="flex-1 bg-white flex gap-y-5" edges={["top"]}>
       <StatusBar style="dark" />
-
-      {/* punchline and avatar */}
       <View className="flex-row justify-between items-center mx-5">
         <View className="gap-y-2">
           <Text
@@ -43,12 +66,10 @@ export default function Home() {
         </View>
       </View>
 
-      {/* image slider */}
       <View>
         <ImageSlider />
       </View>
 
-      {/* body parts list */}
       <View className="flex-1">
         <BodyParts />
       </View>
